@@ -1,0 +1,83 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/btn15PctTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etBillAmount"
+        android:layout_centerHorizontal="true"
+        android:onClick="on15PctBtnClicked"
+        android:text="@string/percent_15" />
+
+    <Button
+        android:id="@+id/btn20PctTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn15PctTip"
+        android:layout_alignBottom="@+id/btn15PctTip"
+        android:layout_alignRight="@+id/etBillAmount"
+        android:layout_alignEnd="@+id/etBillAmount"
+        android:onClick="on20PctBtnClicked"
+        android:text="@string/percent_20" />
+
+    <Button
+        android:id="@+id/btn10PctTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn15PctTip"
+        android:layout_alignBottom="@+id/btn15PctTip"
+        android:layout_alignLeft="@+id/etBillAmount"
+        android:layout_alignStart="@+id/etBillAmount"
+        android:onClick="on10PctBtnClicked"
+        android:text="@string/percent_10" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/img_money_description"
+        android:padding="@dimen/pdMoneyImage"
+        android:src="@drawable/iconmonstr_banknote_multi_10_icon_256" />
+
+    <EditText
+        android:id="@+id/etBillAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="@string/enter_bill_hint"
+        android:inputType="numberDecimal"
+        android:padding="@dimen/pdEnterBillAmount" />
+
+    <TextView
+        android:id="@+id/tvTipAmountIs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btn10PctTip"
+        android:layout_alignStart="@+id/btn10PctTip"
+        android:layout_below="@+id/btn15PctTip"
+        android:layout_marginTop="30dp"
+        android:padding="@dimen/paddingTipTotal"
+        android:text="@string/total_tip_amount"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvTipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvTipAmountIs"
+        android:layout_alignBottom="@+id/tvTipAmountIs"
+        android:layout_alignRight="@+id/btn20PctTip"
+        android:layout_alignEnd="@+id/btn20PctTip"
+        android:paddingTop="@dimen/paddingTipTotal"
+        android:text="@string/tipAmountDefaultText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
