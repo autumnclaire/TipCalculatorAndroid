@@ -5,7 +5,10 @@ import java.util.Locale;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class TipCalculatorActivity extends Activity {
@@ -17,6 +20,36 @@ public class TipCalculatorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_calculator);
         
+        addCustomPctListener();
+        
+    }
+    
+    private void addCustomPctListener() {
+    	EditText etCustomPct = (EditText) findViewById(R.id.etCustomPct);
+    	etCustomPct.addTextChangedListener(new TextWatcher() {
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				//do nothing
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				//do nothing
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				if (s != null && s.length() > 0) {
+					Double tipPct = Double.valueOf(s.toString());
+						onPctBtnClicked( tipPct / 100);
+				}
+				else {
+					onPctBtnClicked(0);
+				}
+			}
+		});
     }
     
     public void on15PctBtnClicked(View v) {
@@ -60,4 +93,6 @@ public class TipCalculatorActivity extends Activity {
 	public static String formatCurrency(Double coord) {
 		return df.format(coord);
 	}
+	
+	
 }
