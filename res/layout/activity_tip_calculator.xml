@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="end"
     tools:context="${relativePackage}.${activityClass}" >
 
     <Button
@@ -39,7 +40,7 @@
         android:text="@string/percent_10" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/im_banknote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -52,7 +53,7 @@
         android:id="@+id/etBillAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignBottom="@+id/im_banknote"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="@string/enter_bill_hint"
@@ -68,28 +69,6 @@
         android:layout_toLeftOf="@+id/etBillAmount"
         android:layout_toStartOf="@+id/etBillAmount"
         android:text="@string/currency_symbol"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/etCustomPct"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/btn15PctTip"
-        android:layout_alignStart="@+id/btn15PctTip"
-        android:layout_alignRight="@+id/btn15PctTip"
-        android:layout_alignEnd="@+id/btn15PctTip"
-        android:layout_below="@+id/btn15PctTip"
-        android:ems="10"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/tvPercentSymbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/etCustomPct"
-        android:layout_toLeftOf="@+id/tvTipAmount"
-        android:layout_toStartOf="@+id/tvTipAmount"
-        android:text="@string/percentage_symbol"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -109,10 +88,85 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/tvTipAmountIs"
         android:layout_alignBottom="@+id/tvTipAmountIs"
-        android:layout_alignRight="@+id/btn20PctTip"
         android:layout_alignEnd="@+id/btn20PctTip"
+        android:layout_alignRight="@+id/btn20PctTip"
+        android:layout_gravity="end"
+        android:layout_toEndOf="@+id/tvTipCalculatedOn"
+        android:layout_toRightOf="@+id/tvTipCalculatedOn"
         android:paddingTop="@dimen/paddingTipTotal"
         android:text="@string/tipAmountDefaultText"
+        android:textAlignment="textEnd"
+        android:gravity="end"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvTipCalculatedOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTipAmountIs"
+        android:layout_alignStart="@+id/tvTipAmountIs"
+        android:layout_below="@+id/tvTipAmountIs"
+        android:layout_marginTop="44dp"
+        android:text="@string/tip_calculated_on" />
+
+    <TextView
+        android:id="@+id/current_tip_pct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvTipCalculatedOn"
+        android:layout_alignBottom="@+id/tvTipCalculatedOn"
+        android:layout_alignEnd="@+id/btn20PctTip"
+        android:layout_alignLeft="@+id/btn20PctTip"
+        android:layout_alignRight="@+id/tvTipAmount"
+        android:layout_alignStart="@+id/btn20PctTip"
+        android:gravity="end"
+        android:text="@string/current_tip_percent"
+        android:textAlignment="textEnd" />
+
+    <EditText
+        android:id="@+id/etCustomPct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn15PctTip"
+        android:layout_alignLeft="@+id/btn15PctTip"
+        android:layout_alignRight="@+id/btn15PctTip"
+        android:layout_alignStart="@+id/btn15PctTip"
+        android:layout_below="@+id/btn15PctTip"
+        android:ems="10"
+        android:inputType="numberDecimal" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvCustomTipPercentSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/etCustomPct"
+        android:layout_toRightOf="@+id/etCustomPct"
+        android:layout_toEndOf="@+id/etCustomPct"
+        android:text="@string/percentage_symbol"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/tvCurrentTipPercentSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/current_tip_pct"
+        android:layout_alignBottom="@+id/current_tip_pct"
+        android:layout_toRightOf="@+id/current_tip_pct"
+        android:layout_toEndOf="@+id/current_tip_pct"
+        android:text="@string/percentage_symbol" />
+
+    <CheckBox
+        android:id="@+id/cb_color_green"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="16dp"
+        android:onClick="onCheckBoxClicked"
+        android:text="@string/cb_color_green" />
 
 </RelativeLayout>

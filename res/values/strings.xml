@@ -12,5 +12,8 @@
     <string name="img_money_description">Image of Money</string>
     <string name="currency_symbol">$</string>
     <string name="percentage_symbol">%</string>
+    <string name="tip_calculated_on">Tip calculated on:</string>
+    <string name="current_tip_percent">0</string>
+    <string name="cb_color_green">I prefer green.</string>
 
 </resources>
